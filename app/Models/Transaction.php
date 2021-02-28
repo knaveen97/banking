@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Transaction extends Model
 {
     use HasFactory;
+
+    public function user()
+    {
+        return $this->belongsTo('User');
+    }
+
+    public function account()
+    {
+        return $this->belongsTo('Account');
+    }
 }

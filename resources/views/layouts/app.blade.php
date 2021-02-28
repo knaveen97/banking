@@ -86,7 +86,7 @@
                         <a class="{{ Route::currentRouteNamed('home') ? 'nav-link active' : 'nav-link' }}" aria-current="page" href="{{ route('home') }}">{{ __('Home') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="{{ Route::currentRouteNamed('accounts') ? 'nav-link active' : 'nav-link' }}" href="#">Accounts</a>
+                        <a class="{{ Route::currentRouteNamed('accounts') ? 'nav-link active' : 'nav-link' }}" href="{{ route('accounts')}}">Accounts</a>
                     </li>
                     <li class="nav-item">
                         <a class="{{ Route::currentRouteNamed('transactions') ? 'nav-link active' : 'nav-link' }}" href="#">Transactions</a>

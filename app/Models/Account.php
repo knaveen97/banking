@@ -8,4 +8,24 @@ use Illuminate\Database\Eloquent\Model;
 class Account extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'user_id',
+        'type',
+        'balance',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo('User');
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany('Transaction');
+    }
+
+    public function billPayments()
+    {
+        return $this->hasMany('BillPayments');
+    }
 }
