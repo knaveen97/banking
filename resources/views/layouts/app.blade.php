@@ -101,8 +101,10 @@
                         <a class="{{ Route::currentRouteNamed('profile') ? 'nav-link active' : 'nav-link' }}" href="{{ route('profile') }}">{{ __('Profile') }}</a>
                     </li>
                 </ul>
+                @include('layouts.flash-message')
             </div>
             @endguest
+            
             @yield('content')
         </main>
     </div>
