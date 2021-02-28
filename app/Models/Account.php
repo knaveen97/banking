@@ -16,16 +16,16 @@ class Account extends Model
 
     public function user()
     {
-        return $this->belongsTo('User');
+        return $this->belongsTo(User::class);
     }
 
     public function transactions()
     {
-        return $this->hasMany('Transaction');
+        return $this->hasMany(Transaction::class);
     }
 
     public function billPayments()
     {
-        return $this->hasMany('BillPayments');
+        return $this->hasMany(BillPayment::class);
     }
 }
