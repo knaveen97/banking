@@ -31,4 +31,31 @@ class AccountController extends Controller
             'accounts' => $user->accounts()->get(),
         ]);
     }
+
+    public function createAccount(User $user, Request $request)
+    {
+        $user = Auth::user();
+        $reason = $request->input('reason');
+        $type = '';
+        if($reason === '+ Create Savings Account')
+        {
+            $type = 'savings';
+        }
+        elseif($reason === '+ Create Checquings Account')
+        {
+            $type = 'chequing';
+        }
+
+        if($type === ''){
+            return redirect('/accounts')->with('danger','Invalid Request. Please try again');
+        }
+
+        Account::create([
+            'user_id' => $user->id,
+            'type' => $type,
+            'balance' => 0,
+        ]);
+
+        return redirect('/accounts')->with('success','Account created successfully!');
+    }
 }

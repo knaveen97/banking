@@ -8,7 +8,10 @@
         </div>
         <div class="card-body">
             <div class="d-flex justify-content-end">
-                <button class="btn btn-primary">+ Create Checquings Account</button>
+                <form method="POST" action="/accounts/create">
+                    @csrf
+                    <input type="submit" class="btn btn-primary" name="reason" value="+ Create Checquings Account"></a>
+                </form>
             </div>
             <table class="table table-hover mt-2">
                 <thead>
@@ -21,14 +24,25 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php $i = 0; ?>
                     @foreach ($accounts as $account)
                     @if ($account->type == 'chequing')
                     <tr>
-                        <th scope="row">{{$loop->index+1}}</th>
+                        <th scope="row">{{++$i}}</th>
                         <td>{{$account->id}}</td>
                         <td>{{$account->balance}}</td>
-                        <td><a href="#" class="btn btn-primary">Transfer</a></td>
-                        <td><a href="#" class="btn btn-primary">Pay Bills</a></td>
+                        <td>
+                            <form method="POST" action="/profile">
+                                @csrf
+                                <a href="#" class="btn btn-primary">Transfer</a>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="POST" action="/profile">
+                                @csrf
+                                <a href="#" class="btn btn-primary">Pay Bills</a>
+                            </form>
+                        </td>
                     </tr>
                     @endif
                     @endforeach
@@ -43,7 +57,10 @@
         </div>
         <div class="card-body">
             <div class="d-flex justify-content-end">
-                <button class="btn btn-primary">+ Create Savings Account</button>
+                <form method="POST" action="/accounts/create">
+                    @csrf
+                    <input type="submit" class="btn btn-primary"  name="reason" value="+ Create Savings Account"></a>
+                </form>
             </div>
             <table class="table table-hover mt-2">
                 <thead>
@@ -56,10 +73,11 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php $i = 0; ?>
                     @foreach ($accounts as $account)
                     @if ($account->type == 'savings')
                     <tr>
-                        <th scope="row">{{$loop->index+1}}</th>
+                        <th scope="row">{{++$i}}</th>
                         <td>{{$account->id}}</td>
                         <td>{{$account->balance}}</td>
                         <td><a href="#" class="btn btn-primary">Transfer</a></td>
