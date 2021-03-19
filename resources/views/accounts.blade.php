@@ -28,7 +28,7 @@
                     @foreach ($accounts as $account)
                     @if ($account->type == 'chequing')
                     <tr>
-                        <th scope="row">{{++$i}}</th>
+                        <td scope="row">{{++$i}}</td>
                         <td>{{$account->id}}</td>
                         <td>{{$account->balance}}</td>
                         <td>
@@ -77,7 +77,7 @@
                     @foreach ($accounts as $account)
                     @if ($account->type == 'savings')
                     <tr>
-                        <th scope="row">{{++$i}}</th>
+                        <td scope="row">{{++$i}}</td>
                         <td>{{$account->id}}</td>
                         <td>{{$account->balance}}</td>
                         <td><a href="#" class="btn btn-primary">Transfer</a></td>
