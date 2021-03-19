@@ -28,3 +28,5 @@ Route::post('/accounts/create',[App\Http\Controllers\AccountController::class, '
 Route::get('/accounts', [App\Http\Controllers\AccountController::class, 'index'])->name('accounts');
 
 Route::get('/transactions', [App\Http\Controllers\TransactionController::class, 'index'])->name('transactions');
+
+Route::get('/bills', [App\Http\Controllers\BillPaymentController::class, 'index'])->name('billpayments');
