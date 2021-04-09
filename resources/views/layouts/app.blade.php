@@ -95,7 +95,7 @@
                         <a class="{{ Route::currentRouteNamed('transactions') ? 'nav-link active' : 'nav-link' }}" href="{{ route('transactions') }}">Transactions</a>
                     </li>
                     <li class="nav-item">
-                        <a class="{{ Route::currentRouteNamed('transfers') ? 'nav-link active' : 'nav-link' }}" href="#">Transfers</a>
+                        <a class="{{ Route::currentRouteNamed('transfers') ? 'nav-link active' : 'nav-link' }}" href="{{ route('transfers') }}">Transfers</a>
                     </li>
                     <li class="nav-item">
                         <a class="{{ Route::currentRouteNamed('billpayments') ? 'nav-link active' : 'nav-link' }}" href="{{ route('billpayments') }}">Bill Payments</a>

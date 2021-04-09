@@ -3,6 +3,7 @@
 @section('content')
 <div class="container mt-2">
     <form class="row g-3">
+    @csrf
         <div class="col-md-6">
             <label for="fromaccount" class="form-label">From Account</label>
             <input type="number" class="form-control" id="fromaccount">

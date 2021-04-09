@@ -32,4 +32,5 @@ Route::get('/transactions', [App\Http\Controllers\TransactionController::class, 
 Route::get('/bills', [App\Http\Controllers\BillPaymentController::class, 'index'])->name('billpayments');
 
 
+Route::post('/transfer/initiate', [App\Http\Controllers\TransferController::class, 'initiateTransfer'])->name('transfers');
 Route::get('/transfer', [App\Http\Controllers\TransferController::class, 'index'])->name('transfers');
