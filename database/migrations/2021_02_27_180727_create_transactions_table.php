@@ -15,12 +15,17 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('from_user_id')->unsigned();
+            $table->bigInteger('to_user_id')->unsigned();
             $table->bigInteger('from_account_id')->unsigned();
             $table->bigInteger('to_account_id')->unsigned();
             $table->float('amount', 12, 2);
+            $table->enum('trans_type', ['transfer', 'bill']);
             $table->timestamps();
-            $table->foreign('user_id')
+            $table->foreign('from_user_id')
+                    ->references('id')
+                    ->on('users');
+            $table->foreign('to_user_id')
                     ->references('id')
                     ->on('users');
             $table->foreign('from_account_id')

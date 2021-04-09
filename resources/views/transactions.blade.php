@@ -19,18 +19,21 @@
                 <tr>
                     <td>{{ ++$i }}</td>
                     <td>{{ $transaction->created_at }}</td>
-                    <td>{{ $transaction->from_account_id }}</td>
-                    <td>{{ $transaction->to_account_id }}</td>
+                    <td>{{ $transaction->from_account_id }} ({{ $transaction->from_name }})</td>
+                    <td>{{ $transaction->to_account_id }} ({{ $transaction->to_name }})</td>
                     <td>{{ $transaction->amount }}</td>
                     <td>
                         @if($transaction->type == 'Internal')
-                        <i class="bi bi-arrow-left-right"></i>
+                        <i class="bi bi-arrow-left-right" style="color: blue;"></i>
                         @endif
                         @if($transaction->type == 'Outgoing')
-                        <i class="bi bi-arrow-up-right"></i>
+                        <i class="bi bi-arrow-up-right" style="color: red;"></i>
                         @endif
-                        @if($transaction->type == 'Outgoing')
-                        <i class="bi bi-arrow-down-left"></i>
+                        @if($transaction->type == 'Incoming')
+                        <i class="bi bi-arrow-down-left" style="color: green;"></i>
+                        @endif
+                        @if($transaction->type == 'Bill Payment')
+                        <i class="bi bi-file-earmark-text"></i>
                         @endif
                         &nbsp; {{ $transaction->type }}</td>
                 </tr>

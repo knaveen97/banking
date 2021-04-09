@@ -9,19 +9,21 @@ class Transaction extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'user_id',
+        'from_user_id',
         'from_account_id',
+        'to_user_id',
         'to_account_id',
         'amount',
+        'trans_type',
     ];
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class);
     }
 
     public function account()
     {
-        return $this->belongsTo(Account::class);
+        return $this->belongsToMany(Account::class);
     }
 }

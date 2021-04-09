@@ -29,22 +29,32 @@ class TransactionController extends Controller
     {
         $user = Auth::user();
         $user_id = $user->id;
-        $transactions = Transaction::where('from_account_id', $user_id)->orWhere('to_account_id', $user_id)->get();
+        $transactions = Transaction::where('from_user_id', $user_id)->orWhere('to_user_id', $user_id)->get();
         foreach ($transactions as $transaction) {
-            $from_user = Account::find($transaction->from_account_id)->user;
-            $to_user = Account::find($transaction->to_account_id)->user;
-            if($from_user->id === $to_user->id){
+            $from_user = User::find($transaction->from_user_id);
+            $to_user = User::find($transaction->to_user_id);
+
+            if($to_user->type === "bill"){
+                $transaction['type'] = "Bill Payment";
+                $transaction['from_name'] = "Me";
+                $transaction['to_name'] = $to_user->firstname;
+            }
+            elseif ($from_user->id === $to_user->id) {
                 $transaction['type'] = "Internal";
-            }
-            elseif($from_user->id == $user_id){
+                $transaction['from_name'] = "Me";
+                $transaction['to_name'] = "Me";
+            } elseif ($from_user->id == $user_id) {
                 $transaction['type'] = "Outgoing";
-            }
-            elseif($to_user->id == $user_id){
+                $transaction['from_name'] = "Me";
+                $transaction['to_name'] = $to_user->lastname . ', ' . $to_user->firstname;
+            } elseif ($to_user->id == $user_id) {
                 $transaction['type'] = "Incoming";
+                $transaction['to_name'] = "Me";
+                $transaction['from_name'] = $from_user->lastname . ', ' . $from_user->firstname;
             }
         }
         return view('transactions', [
-            'transactions' => $transactions 
+            'transactions' => $transactions
         ]);
     }
 }

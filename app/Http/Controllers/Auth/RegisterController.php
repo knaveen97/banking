@@ -77,6 +77,7 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'type' => 'regular',
         ]);
 
         if(isset($user))
@@ -87,8 +88,7 @@ class RegisterController extends Controller
                 'balance' => 100.00,
             ]);
         }
-
-
+        
         return $user;
     }
 }

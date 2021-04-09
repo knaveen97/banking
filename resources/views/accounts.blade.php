@@ -31,18 +31,8 @@
                         <td scope="row">{{++$i}}</td>
                         <td>{{$account->id}}</td>
                         <td>{{$account->balance}}</td>
-                        <td>
-                            <form method="POST" action="/profile">
-                                @csrf
-                                <a href="#" class="btn btn-primary">Transfer</a>
-                            </form>
-                        </td>
-                        <td>
-                            <form method="POST" action="/profile">
-                                @csrf
-                                <a href="#" class="btn btn-primary">Pay Bills</a>
-                            </form>
-                        </td>
+                        <td><a href="/transfer" class="btn btn-primary">Transfer</a></td>
+                        <td><a href="/bills" class="btn btn-primary">Pay Bills</a></td>
                     </tr>
                     @endif
                     @endforeach
@@ -80,8 +70,8 @@
                         <td scope="row">{{++$i}}</td>
                         <td>{{$account->id}}</td>
                         <td>{{$account->balance}}</td>
-                        <td><a href="#" class="btn btn-primary">Transfer</a></td>
-                        <td><a href="#" class="btn btn-primary">Pay Bills</a></td>
+                        <td><a href="/transfer" class="btn btn-primary">Transfer</a></td>
+                        <td><a href="/bills" class="btn btn-primary">Pay Bills</a></td>
                     </tr>
                     @endif
                     @endforeach

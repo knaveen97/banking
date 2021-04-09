@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware('guest');
+});
 
 Auth::routes();
 
@@ -29,6 +29,8 @@ Route::get('/accounts', [App\Http\Controllers\AccountController::class, 'index']
 
 Route::get('/transactions', [App\Http\Controllers\TransactionController::class, 'index'])->name('transactions');
 
+
+Route::post('/bills/pay', [App\Http\Controllers\BillPaymentController::class, 'payBill'])->name('billpayments');
 Route::get('/bills', [App\Http\Controllers\BillPaymentController::class, 'index'])->name('billpayments');
 
 
