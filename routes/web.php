@@ -30,3 +30,6 @@ Route::get('/accounts', [App\Http\Controllers\AccountController::class, 'index']
 Route::get('/transactions', [App\Http\Controllers\TransactionController::class, 'index'])->name('transactions');
 
 Route::get('/bills', [App\Http\Controllers\BillPaymentController::class, 'index'])->name('billpayments');
+
+
+Route::get('/transfer', [App\Http\Controllers\TransferController::class, 'index'])->name('transfers');
