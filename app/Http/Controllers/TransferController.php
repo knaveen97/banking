@@ -115,6 +115,7 @@ class TransferController extends Controller
         $transaction->from_account_id = $fromaccount;
         $transaction->to_account_id = $toaccount;
         $transaction->amount = $amount;
+        $transaction->trans_type = "transfer";
         $transaction->save();
     }
 }
