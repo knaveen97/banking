@@ -129,6 +129,7 @@ class BillPaymentController extends Controller
         $transaction->from_account_id = $fromaccount;
         $transaction->to_account_id = $payee;
         $transaction->amount = $amount;
+        $transaction->trans_type = "bill";
         $transaction->save();
     }
 }
