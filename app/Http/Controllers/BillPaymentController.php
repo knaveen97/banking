@@ -52,25 +52,25 @@ class BillPaymentController extends Controller
                             if ($this->checkBalance($fromaccount, $amount)) {
                                 $this->updateBalances($fromaccount, $payee, $amount);
                                 $this->createTransaction($fromaccount, $payee, $amount, $user->id);
-                                return redirect('/transfer')->with('success', 'Amount transferred successfully. Check transactions tab for more details');
+                                return redirect('/bills')->with('success', 'Amount transferred successfully. Check transactions tab for more details');
                             } else {
-                                return redirect('/transfer')->with('error', 'Insufficient balance');
+                                return redirect('/bills')->with('error', 'Insufficient balance');
                             }
                         } else {
-                            return redirect('/transfer')->with('error', 'Payee doesnot exist');
+                            return redirect('/bills')->with('error', 'Payee doesnot exist');
                         }
                     } else {
-                        return redirect('/transfer')->with('error', 'From Account doesnot belong to user');
+                        return redirect('/bills')->with('error', 'From Account doesnot belong to user');
                     }
                 } else {
-                    return redirect('/transfer')->with('error', 'From Account doesnot exist');
+                    return redirect('/bills')->with('error', 'From Account doesnot exist');
                 }
             } else {
-                return redirect('/transfer')->with('error', 'From Account and payee cannot be same');
+                return redirect('/bills')->with('error', 'From Account and payee cannot be same');
             }
         }
         else{
-            return redirect('/transfer')->with('error', 'Amount must be greater than 0');
+            return redirect('/bills')->with('error', 'Amount must be greater than 0');
         }
     }
 
