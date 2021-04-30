@@ -41,7 +41,7 @@ class AccountController extends Controller
         {
             $type = 'savings';
         }
-        elseif($reason === '+ Create Checquings Account')
+        elseif($reason === '+ Create Chequings Account')
         {
             $type = 'chequing';
         }
