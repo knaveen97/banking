@@ -10,7 +10,7 @@
             <div class="d-flex justify-content-end">
                 <form method="POST" action="/accounts/create">
                     @csrf
-                    <input type="submit" class="btn btn-primary" name="reason" value="+ Create Checquings Account"></a>
+                    <input type="submit" class="btn btn-primary" name="reason" value="+ Create Chequings Account"></a>
                 </form>
             </div>
             <table class="table table-hover mt-2">
