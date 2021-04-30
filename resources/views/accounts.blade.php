@@ -4,7 +4,7 @@
 <div class="container mt-2">
     <div class="card">
         <div class="card-header">
-            <h5>Checquing Accounts</h5>
+            <h5>Chequings Accounts</h5>
         </div>
         <div class="card-body">
             <div class="d-flex justify-content-end">
